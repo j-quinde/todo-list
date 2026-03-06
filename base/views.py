@@ -1,7 +1,9 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, FormView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -22,8 +24,17 @@ class Login(LoginView):
     def get_success_url(self):
         return reverse_lazy('tareas')
 
+class RegistroUsuario(FormView):
+    template_name = 'base/registro.html'
+    form_class = UserCreationForm
+    redirect_authenticated_user = True
+    success_url = reverse_lazy('tareas')
 
-#class Logout(LogoutView):
+    def form_valid(self, form):
+        usuario = form.save()
+        if usuario is not None:
+            login(self.request, usuario)
+        return super(RegistroUsuario, self).form_valid(form)
 
 # Vista tareas
 class ListaTareas(LoginRequiredMixin,ListView):
