@@ -1,4 +1,5 @@
 {% extends 'base/base.html' %}
+{% load static %}
 {% block content %}
     <h1>Lista de Tareas</h1>
     <a href="{% url 'crear-tarea' %}">Crear Nueva Tarea</a>
@@ -27,4 +28,6 @@
         {% endfor %}
         </tbody>
     </table>
+
+    <script src="{% static 'base/js/script.js'%}"></script>
 {% endblock content %}
