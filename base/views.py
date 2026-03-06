@@ -42,6 +42,10 @@ class CrearTarea(LoginRequiredMixin,CreateView):
     fields = ['titulo','descripcion','completo']
     success_url = reverse_lazy('tareas')
 
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user #automaticamente asigna el valor de la instancia al usuario logeado
+        return super(CrearTarea,self).form_valid(form)
+
 class EditarTarea(LoginRequiredMixin,UpdateView):
     model = Tarea
     fields = ['titulo', 'descripcion', 'completo']
