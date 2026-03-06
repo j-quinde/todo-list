@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <h1>Formulario de tareas</h1>
+    <a href="{% url 'tareas' %}">Volver</a>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="Guardar">
+    </form>
+{% endblock content %}

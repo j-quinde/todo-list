@@ -55,7 +55,7 @@ ROOT_URLCONF = 'todo_list.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:\\Users\\Nitro 5\\Documents\\Mis_entornos\\mis_proyectos\\src\\todo_list\\base\\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,9 +103,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-pe'
 
-TIME_ZONE = 'UTC'
+#TIME_ZONE = 'UTC-5'
+TIME_ZONE = 'America/Lima'
 
 USE_I18N = True
 
