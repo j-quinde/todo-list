@@ -4,6 +4,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from base.models import Tarea
 
@@ -30,12 +31,12 @@ class ListaTareas(LoginRequiredMixin,ListView):
     context_object_name = 'tareas'
 
 
-class CrearTarea(CreateView):
+class CrearTarea(LoginRequiredMixin,CreateView):
     model = Tarea
     fields = ['titulo','descripcion','completo']
     success_url = reverse_lazy('tareas')
 
-class EditarTarea(UpdateView):
+class EditarTarea(LoginRequiredMixin,UpdateView):
     model = Tarea
     fields = ['titulo', 'descripcion', 'completo']
     success_url = reverse_lazy('tareas')
@@ -45,6 +46,7 @@ class EditarTarea(UpdateView):
 #     context_object_name = 'tareas'
 #     success_url = reverse_lazy('tareas')
 
+@login_required # para funciones se usan decoradores
 def eliminarTarea(request,pk):
     tarea = get_object_or_404(Tarea,pk=pk)
     tarea.delete()
