@@ -30,6 +30,12 @@ class ListaTareas(LoginRequiredMixin,ListView):
     model = Tarea
     context_object_name = 'tareas'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tareas'] = context['tareas'].filter(usuario=self.request.user)
+        context['count'] = context['tareas'].filter(completo=False).count()
+        return context
+
 
 class CrearTarea(LoginRequiredMixin,CreateView):
     model = Tarea
