@@ -15,6 +15,11 @@
     <h1>Lista de Tareas</h1>
     <a href="{% url 'crear-tarea' %}">Crear Nueva Tarea</a>
 
+    <form method="GET">
+        <input type="text" name="buscador" placeholder="Buscar..." aria-label="Buscar" value="{{ valor_buscado }}">
+        <input type="submit" value="Buscar">
+    </form>
+
     <table>
         <thead>
             <tr>
