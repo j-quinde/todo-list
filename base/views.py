@@ -27,8 +27,14 @@ class Login(LoginView):
 class RegistroUsuario(FormView):
     template_name = 'base/registro.html'
     form_class = UserCreationForm
-    redirect_authenticated_user = True
+    # redirect_authenticated_user = True
     success_url = reverse_lazy('tareas')
+
+    def dispatch(self, request, *args, **kwargs):
+        # si el usuario ya esta logueado, redirigir
+        if request.user.is_authenticated:
+            return redirect('tareas')
+        return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         usuario = form.save()
