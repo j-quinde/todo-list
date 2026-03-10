@@ -20,7 +20,51 @@
         <input type="submit" value="Buscar">
     </form>
 
-    <table>
+    <div class="container-tabs">
+        <div class="tabs">
+            <a class="tab active" href="#tab-pendientes">Pendientes</a>
+            <a class="tab" href="#tab-terminados">Terminados</a>
+        </div>
+        <div class="tab-contents">
+            <div class="tab-content active" id="tab-pendientes">
+                {% for tarea in tareas %}
+                    {% if not tarea.completo %}
+                        <div class="items-tareas">
+                            <div class="tarea-detalles">
+                                <label>{{ tarea.titulo }}</label>
+                                <div class="tarea-fecha">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp<label>{{ tarea.creado|date:"d/m/Y" }}</label>
+                                </div>
+                            </div>
+
+                            <div class="tarea-acciones">
+                                <a class="icon-delete" onclick="confirm_delete({{ tarea.id }})"><i class="fa fa-trash-o" aria-hidden="true" style="font-size:20px"></i></a>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="tab-content" id="tab-terminados">
+                {% for tarea in tareas %}
+                    {% if tarea.completo %}
+                        <div class="items-tareas">
+                            <div class="tarea-detalles">
+                                <label>{{ tarea.titulo }}</label>
+                                <div class="tarea-fecha">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp<label>{{ tarea.creado|date:"d/m/Y" }}</label>
+                                </div>
+                            </div>
+                            <div class="tarea-acciones">
+                                <a class="icon-delete" onclick="confirm_delete({{ tarea.id }})"><i class="fa fa-trash-o" aria-hidden="true" style="font-size:20px"></i></a>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% comment %}<table>
         <thead>
             <tr>
                 <th>Tarea</th>
@@ -43,7 +87,7 @@
             <h3>No hay tareas registradas</h3>
         {% endfor %}
         </tbody>
-    </table>
+    </table>{% endcomment %}
 
     <script src="{% static 'base/js/script.js'%}"></script>
 {% endblock content %}
