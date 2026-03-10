@@ -15,10 +15,12 @@
     <h1>Lista de Tareas</h1>
     <a href="{% url 'crear-tarea' %}">Crear Nueva Tarea</a>
 
-    <form method="GET">
-        <input type="text" name="buscador" placeholder="Buscar..." aria-label="Buscar" value="{{ valor_buscado }}">
-        <input type="submit" value="Buscar">
-    </form>
+    <div class="group-buscador">
+        <form method="GET">
+            <input type="text" name="buscador" placeholder="Buscar..." aria-label="Buscar" value="{{ valor_buscado }}">
+            <button type="submit" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
+    </div>
 
     <div class="container-tabs">
         <div class="tabs">
@@ -49,7 +51,7 @@
                     {% if tarea.completo %}
                         <div class="items-tareas">
                             <div class="tarea-detalles">
-                                <label>{{ tarea.titulo }}</label>
+                                <s><label>{{ tarea.titulo }}</label></s>
                                 <div class="tarea-fecha">
                                     <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp<label>{{ tarea.creado|date:"d/m/Y" }}</label>
                                 </div>
