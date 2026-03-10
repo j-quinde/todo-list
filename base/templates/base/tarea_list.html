@@ -12,8 +12,11 @@
     {% else %}
         <a href="{% url 'login' %}">Ingresar</a>
     {% endif %}
-    <h1>Lista de Tareas</h1>
-    <a href="{% url 'crear-tarea' %}">Crear Nueva Tarea</a>
+
+    <div class="group-header">
+        <h1>To-Do List</h1>
+        <a id="btn-agregar" href="{% url 'crear-tarea' %}"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNueva Tarea</a>
+    </div>
 
     <div class="group-buscador">
         <form method="GET">

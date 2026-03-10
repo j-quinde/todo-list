@@ -105,6 +105,23 @@ input[type=text], input[type=password], textarea{
 
 .group-buscador form .button {
     border-radius: 0 4px 4px 0 !important;
+}
 
+.group-header{
+    display: flex;
+    margin: auto;
+    max-width: 600px;
+    justify-content: space-between;
+    align-items: center;
+}
 
+#btn-agregar{
+    text-decoration: none;
+    background-color: #5DC25D;
+    border-color: #4cae4c;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 15px;
 }
