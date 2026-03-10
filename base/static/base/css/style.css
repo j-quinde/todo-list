@@ -11,6 +11,7 @@ body{
 
 .container-tabs{
     max-width: 600px;
+    min-height: 30rem;
     border-radius: 10px;
     margin: auto;
     -webkit-box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.21);
@@ -54,7 +55,8 @@ body{
 .items-tareas{
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    padding: 12px;
+    border-bottom: 1px solid rgb(225, 225, 225);
 }
 
 .icon-delete{
