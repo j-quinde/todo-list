@@ -52,7 +52,7 @@ body{
     display: block;
 }
 
-.items-tareas{
+.items-tareas form{
     display: flex;
     justify-content: space-between;
     padding: 12px;
@@ -199,4 +199,16 @@ input[type=checkbox]:checked + .box::after{
 
 input[type=checkbox]:active + .box{
     box-shadow: 0 0 4px #3BB1FF;
+}
+
+.titulo-tarea.completo {
+    text-decoration: line-through;
+    color: #3BB1FF;
+    opacity: 0.7;
+    transition: opacity 1s ease;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease;
 }

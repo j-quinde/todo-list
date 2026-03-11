@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import JsonResponse
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, FormView
 from django.contrib.auth.forms import UserCreationForm
@@ -84,3 +85,11 @@ def eliminarTarea(request,pk):
     tarea.delete()
     messages.success(request,'Tarea eliminado correctamente')
     return redirect('tareas')
+
+def actualizarTarea(request,pk):
+    tarea = get_object_or_404(Tarea,pk=pk)
+    if request.method == 'POST':
+        tarea.completo = "completo" in request.POST
+        tarea.save()
+        return JsonResponse({"success":True,"completo": tarea.completo})
+    return JsonResponse({"success":False}, status=400)

@@ -34,16 +34,29 @@
             <div class="tab-content active" id="tab-pendientes">
                 {% for tarea in tareas %}
                     {% if not tarea.completo %}
-                        <div class="items-tareas">
-                            <div class="tarea-detalles">
-                                <label>{{ tarea.titulo }}</label>
-                                <div class="tarea-fecha">
-                                    <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp<label>{{ tarea.creado|date:"d/m/Y" }}</label>
+                        <div class="items-tareas" id="tarea-{{tarea.id}}">
+                            <form method="post" action="{%url 'actualizar-tarea' tarea.id %}" class="form-tarea">
+                                {% csrf_token %}
+                                <div class="tarea-check">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="completo" class="chk-completo" data-id="{{ tarea.id }}" {% if tarea.completo %}checked{% endif %}>
+                                        <span class="box"></span>
+                                    </label>
                                 </div>
-                            </div>
-                            <div class="tarea-acciones">
-                                <a class="icon-delete" onclick="confirm_delete({{ tarea.id }})"><i class="fa fa-trash-o" aria-hidden="true" style="font-size:20px"></i></a>
-                            </div>
+                                <div class="tarea-detalles">
+                                    <label class="titulo-tarea">{{ tarea.titulo }}</label>
+                                    <div class="tarea-fecha">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        &nbsp
+                                        <label>{{ tarea.creado|date:"d/m/Y" }}</label>
+                                    </div>
+                                </div>
+                                <div class="tarea-acciones">
+                                    <a class="icon-delete" onclick="confirm_delete({{ tarea.id }})">
+                                        <i class="fa fa-trash-o" aria-hidden="true" style="font-size:20px"></i>
+                                    </a>
+                                </div>
+                            </form>
                         </div>
                     {% endif %}
                 {% endfor %}
