@@ -163,8 +163,8 @@ input[type=text], input[type=password], textarea{
     display: inline-block;
     width: 1rem;
     height: 1rem;
-    background-color: #B5B5B5;
-    border: 2px solid #B5B5B5;
+    background-color: white;
+    border: 2px solid darkgrey;
     border-radius: 0.15rem;
     margin-bottom: -0.25rem;
     transition: all 0.35s ease;
@@ -174,23 +174,22 @@ input[type=text], input[type=password], textarea{
     border: 2px solid #3BB1FF;
 }
 
-.form-item input[type=checkbox]{
+input[type=checkbox]{
     display: none;
 }
 
-.form-item input[type=checkbox]:checked + .box{
+input[type=checkbox]:checked + .box{
     border: 2px solid #3BB1FF;
     background: #3BB1FF;
 }
 
-.form-item input[type=checkbox]:checked + .box::after{
+input[type=checkbox]:checked + .box::after{
     content: "";
     display: block;
     width: 0.3rem;
     height: 0.7rem;
     border-style: solid;
     border-color: white;
-
     border-width: 0 3px 3px 0;
     border-radius: 0.1rem;
     transform: rotate(45deg);
@@ -198,6 +197,6 @@ input[type=text], input[type=password], textarea{
     margin-top: -0.05rem;
 }
 
-.form-item input[type=checkbox]:active + .box{
+input[type=checkbox]:active + .box{
     box-shadow: 0 0 4px #3BB1FF;
 }
