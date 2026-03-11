@@ -126,3 +126,78 @@ input[type=text], input[type=password], textarea{
     padding: 10px;
     font-size: 15px;
 }
+
+.group-form{
+    max-width: 600px;
+    margin: auto;
+    list-style-type: none;
+}
+
+.group-form input[type=submit]{
+    margin: 10px;
+}
+
+.form-item{
+    margin: auto;
+    padding: 10px;
+}
+
+.form-item label{
+    padding-bottom: 5px;
+}
+
+.group-form input[type=text]{
+    margin-top: 10px !important;
+}
+
+.group-form textarea{
+    margin-top: 10px !important;
+}
+
+.checkbox{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.checkbox .box{
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-color: #B5B5B5;
+    border: 2px solid #B5B5B5;
+    border-radius: 0.15rem;
+    margin-bottom: -0.25rem;
+    transition: all 0.35s ease;
+}
+
+.checkbox:hover .box{
+    border: 2px solid #3BB1FF;
+}
+
+.form-item input[type=checkbox]{
+    display: none;
+}
+
+.form-item input[type=checkbox]:checked + .box{
+    border: 2px solid #3BB1FF;
+    background: #3BB1FF;
+}
+
+.form-item input[type=checkbox]:checked + .box::after{
+    content: "";
+    display: block;
+    width: 0.3rem;
+    height: 0.7rem;
+    border-style: solid;
+    border-color: white;
+
+    border-width: 0 3px 3px 0;
+    border-radius: 0.1rem;
+    transform: rotate(45deg);
+    margin-left: 0.25rem;
+    margin-top: -0.05rem;
+}
+
+.form-item input[type=checkbox]:active + .box{
+    box-shadow: 0 0 4px #3BB1FF;
+}

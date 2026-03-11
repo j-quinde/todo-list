@@ -1,10 +1,24 @@
 {% extends 'base/base.html' %}
 {% block content %}
-    <h1>Formulario de tareas</h1>
-    <a href="{% url 'tareas' %}">Volver</a>
-    <form method="post" action="">
-        {% csrf_token %}
-        {{ form.as_ul }}
-        <input type="submit" value="Guardar">
-    </form>
+    <div class="group-header">
+        <h1>Formulario de tareas</h1>
+        <a href="{% url 'tareas' %}">Volver</a>
+    </div>
+    <div class="group-form">
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="form-item">
+                <label for="id_titulo">{{ form.titulo.label }}</label>
+                {{ form.titulo }}
+            </div>
+            <div class="form-item">
+                <label for="id_descripcion">{{ form.descripcion.label }}</label>
+                {{ form.descripcion }}
+            </div>
+            <div class="form-item">
+                <label for="id_completo" class="checkbox">{{ form.completo }} <span class="box"></span> {{ form.completo.label }}</label>
+            </div>
+            <input class="button" type="submit" value="Guardar">
+        </form>
+    </div>
 {% endblock content %}
