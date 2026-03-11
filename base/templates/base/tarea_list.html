@@ -69,31 +69,6 @@
         </div>
     </div>
 
-    {% comment %}<table>
-        <thead>
-            <tr>
-                <th>Tarea</th>
-                <th>Fecha</th>
-                <th colspan="2">Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for tarea in tareas %}
-{#            "tareas" del for viene de 'base\views.py' del context_object_name = 'tareas'#}
-            <tr>
-                <td>{{ tarea.titulo }}</td>
-                <td>{{ tarea.creado }}</td>
-                <td><a href="{% url 'editar-tarea' tarea.id %}">Editar</a></td>
-                <td>
-                    <a href="#" onclick="confirm_delete({{ tarea.id }})">Eliminar</a>
-                </td>
-            </tr>
-            {% empty %}
-            <h3>No hay tareas registradas</h3>
-        {% endfor %}
-        </tbody>
-    </table>{% endcomment %}
-
     <script src="{% static 'base/js/script_alerts.js'%}"></script>
     <script src="{% static 'base/js/script.js'%}"></script>
 {% endblock content %}
