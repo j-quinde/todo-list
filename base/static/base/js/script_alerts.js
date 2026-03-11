@@ -16,3 +16,17 @@ function confirm_delete(tarea_id) {
         }
     });
 }
+
+function confirm_save(event) {
+    event.preventDefault();
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Tarea Guadada!",
+      showConfirmButton: false,
+      timer: 1500
+    }).then(()=>{
+       //al cerrar la alerta, se envia el formulario
+       document.querySelector('form').submit();
+    });
+}

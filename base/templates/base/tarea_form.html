@@ -1,4 +1,6 @@
 {% extends 'base/base.html' %}
+{% load static %}
+
 {% block content %}
     <div class="group-header">
         <h1>Formulario de tareas</h1>
@@ -18,7 +20,8 @@
             <div class="form-item">
                 <label for="id_completo" class="checkbox">{{ form.completo }} <span class="box"></span> {{ form.completo.label }}</label>
             </div>
-            <input class="button" type="submit" value="Guardar">
+            <input class="button" type="submit" value="Guardar" onclick="confirm_save(event)">
         </form>
     </div>
+    <script src="{% static 'base/js/script_alerts.js'%}"></script>
 {% endblock content %}
