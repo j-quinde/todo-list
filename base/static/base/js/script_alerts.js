@@ -4,7 +4,7 @@ function confirm_delete(tarea_id) {
         title: "¿Seguro que desea eliminar la tarea?",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonText: "Si, eliminar!",
+        confirmButtonText: "Sí, eliminar!",
         cancelButtonText: 'Cancelar'
     }).then((result) => {
         if(result.isConfirmed){
