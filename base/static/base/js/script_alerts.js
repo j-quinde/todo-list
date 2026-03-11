@@ -10,9 +10,12 @@ function confirm_delete(tarea_id) {
         if(result.isConfirmed){
             Swal.fire({
                 text: "Tarea Eliminada!.",
-                icon: "success"
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                window.location.href = `/eliminar-tarea/${tarea_id}`
             });
-            window.location.href = `/eliminar-tarea/${tarea_id}`
         }
     });
 }
