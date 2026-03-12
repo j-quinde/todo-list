@@ -201,11 +201,32 @@ input[type=checkbox]:active + .box{
     box-shadow: 0 0 4px #3BB1FF;
 }
 
-.titulo-tarea.completo {
-    text-decoration: line-through;
-    color: #3BB1FF;
+.titulo-tarea{
+    position: relative;
+    display: inline-block;
+    transition: color 0.5s ease, opacity 0.5s ease;
+}
+
+.titulo-tarea::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 2px;
+    background: #575757;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.tarea-completada{
+    color: #575757;
     opacity: 0.7;
-    transition: opacity 1s ease;
+}
+
+.tarea-completada::after {
+    transform: scaleX(1);
 }
 
 .fade-out {
