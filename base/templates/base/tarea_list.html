@@ -65,15 +65,26 @@
                 {% for tarea in tareas %}
                     {% if tarea.completo %}
                         <div class="items-tareas">
-                            <form>
+                            <form method="post" action="{%url 'actualizar-tarea' tarea.id %}" class="form-tarea">
+                                {% csrf_token %}
+                                <div class="tarea-check">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="completo" class="chk-completo" data-id="{{ tarea.id }}" {% if tarea.completo %}checked{% endif %}>
+                                        <span class="box"></span>
+                                    </label>
+                                </div>
                                 <div class="tarea-detalles">
-                                    <s><label>{{ tarea.titulo }}</label></s>
+                                    <label class="titulo-tarea tarea-completada">{{ tarea.titulo }}</label>
                                     <div class="tarea-fecha">
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp<label>{{ tarea.creado|date:"d/m/Y" }}</label>
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        &nbsp
+                                        <label>{{ tarea.creado|date:"d/m/Y" }}</label>
                                     </div>
                                 </div>
                                 <div class="tarea-acciones">
-                                    <a class="icon-delete" onclick="confirm_delete({{ tarea.id }})"><i class="fa fa-trash-o" aria-hidden="true" style="font-size:20px"></i></a>
+                                    <a class="icon-delete" onclick="confirm_delete({{ tarea.id }})">
+                                        <i class="fa fa-trash-o" aria-hidden="true" style="font-size:20px"></i>
+                                    </a>
                                 </div>
                             </form>
                         </div>
