@@ -43,3 +43,6 @@ document.querySelectorAll('.form-tarea').forEach(form => {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  MicroModal.init();
+});

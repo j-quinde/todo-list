@@ -1,11 +1,11 @@
-{% extends 'base/base.html' %}
+{% comment %}{% extends 'base/base.html' %}
 {% load static %}
 
-{% block content %}
-    <div class="group-header">
-        <h1>Formulario de tareas</h1>
-        <a class="button" href="{% url 'tareas' %}"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbspVolver</a>
-    </div>
+{% block content %}{% endcomment %}
+{#    <div class="group-header">#}
+{#        <h1>Formulario de tareas</h1>#}
+{#        <a class="button" href="{% url 'tareas' %}"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbspVolver</a>#}
+{#    </div>#}
     <div class="group-form">
         <form method="post" action="">
             {% csrf_token %}
@@ -23,5 +23,5 @@
             <input class="button" type="submit" value="Guardar" onclick="confirm_save(event)">
         </form>
     </div>
-    <script src="{% static 'base/js/script_alerts.js'%}"></script>
-{% endblock content %}
+    {% comment %}<script src="{% static 'base/js/script_alerts.js'%}"></script>
+{% endblock content %}{% endcomment %}
