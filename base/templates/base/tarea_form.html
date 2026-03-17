@@ -7,7 +7,7 @@
 {#        <a class="button" href="{% url 'tareas' %}"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbspVolver</a>#}
 {#    </div>#}
     <div class="group-form">
-        <form id="form-crear-tarea" method="post" action="{% url 'crear-tarea' %}">
+        <form id="form-crear-tarea" method="post" action="{% if tarea %}{% url 'editar-tarea' tarea.id %}{% else %}{% url 'crear-tarea' %}{% endif %}">
             {% csrf_token %}
             <div class="form-item">
 {#                <label for="id_titulo">{{ form.titulo.label }}</label>#}

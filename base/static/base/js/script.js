@@ -46,3 +46,16 @@ document.querySelectorAll('.form-tarea').forEach(form => {
 document.addEventListener('DOMContentLoaded', () => {
   MicroModal.init();
 });
+
+document.querySelectorAll('.icon-editar').forEach(btn =>{
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = btn.getAttribute('href');
+
+        fetch(url)
+            .then(res => res.text())
+            .then(html => {
+                document.querySelector('#modal-1-content').innerHTML = html
+            });
+    });
+});

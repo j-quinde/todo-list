@@ -89,7 +89,9 @@ def crearTarea(request):
 
 class EditarTarea(LoginRequiredMixin,UpdateView):
     model = Tarea
-    fields = ['titulo', 'descripcion', 'completo']
+    form_class = TareaForm
+    template_name = 'base/tarea_form.html'
+    #fields = ['titulo', 'descripcion', 'completo']
     success_url = reverse_lazy('tareas')
 
 # class EliminarTarea(DeleteView):
