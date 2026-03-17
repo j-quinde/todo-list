@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   MicroModal.init();
 });
 
-document.querySelectorAll('.icon-editar').forEach(btn =>{
+document.querySelectorAll('.icon-edit').forEach(btn =>{
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const url = btn.getAttribute('href');
