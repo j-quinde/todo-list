@@ -10,6 +10,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from base.models import Tarea
+from .forms import TareaForm
+
 
 # LoginRequiredMixin: protege las vistas basadas en clases (CBV)
 # restringiendo el acceso solo a usuarios autenticados
@@ -52,6 +54,7 @@ class ListaTareas(LoginRequiredMixin,ListView):
         context = super().get_context_data(**kwargs)
         context['tareas'] = context['tareas'].filter(usuario=self.request.user)
         context['count'] = context['tareas'].filter(completo=False).count()
+        context['form'] = TareaForm()
 
         valor_buscado = self.request.GET.get('buscador') or ''
         if valor_buscado:
@@ -60,14 +63,29 @@ class ListaTareas(LoginRequiredMixin,ListView):
         return context
 
 
-class CrearTarea(LoginRequiredMixin,CreateView):
-    model = Tarea
-    fields = ['titulo','descripcion','completo']
-    success_url = reverse_lazy('tareas')
+# class CrearTarea(LoginRequiredMixin,CreateView):
+#     model = Tarea
+#     fields = ['titulo','descripcion','completo']
+#     success_url = reverse_lazy('tareas')
+#
+#     def form_valid(self, form):
+#         form.instance.usuario = self.request.user #automaticamente asigna el valor de la instancia al usuario logeado
+#         return super(CrearTarea,self).form_valid(form)
 
-    def form_valid(self, form):
-        form.instance.usuario = self.request.user #automaticamente asigna el valor de la instancia al usuario logeado
-        return super(CrearTarea,self).form_valid(form)
+@login_required
+def crearTarea(request):
+    if request.method == 'POST':
+        form = TareaForm(request.POST)
+        if form.is_valid():
+            tarea = form.save(commit=False)
+            tarea.usuario = request.user
+            tarea.save()
+            return redirect('tareas')
+    return redirect('tareas')
+    # else:
+    #     form = TareaForm()
+    # return render(request,'base/tarea_form.html',{'form':form})
+
 
 class EditarTarea(LoginRequiredMixin,UpdateView):
     model = Tarea

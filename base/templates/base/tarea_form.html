@@ -7,20 +7,22 @@
 {#        <a class="button" href="{% url 'tareas' %}"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbspVolver</a>#}
 {#    </div>#}
     <div class="group-form">
-        <form method="post" action="">
+        <form id="form-crear-tarea" method="post" action="{% url 'crear-tarea' %}">
             {% csrf_token %}
             <div class="form-item">
-                <label for="id_titulo">{{ form.titulo.label }}</label>
+{#                <label for="id_titulo">{{ form.titulo.label }}</label>#}
+                <label for="id_titulo">Título:</label>
                 {{ form.titulo }}
             </div>
             <div class="form-item">
-                <label for="id_descripcion">{{ form.descripcion.label }}</label>
+{#                <label for="id_descripcion">{{ form.descripcion.label }}</label>#}
+                <label for="id_descripcion">Descripción:</label>
                 {{ form.descripcion }}
             </div>
             <div class="form-item">
                 <label for="id_completo" class="checkbox">{{ form.completo }} <span class="box"></span> {{ form.completo.label }}</label>
             </div>
-            <input class="button" type="submit" value="Guardar" onclick="confirm_save(event)">
+            <input class="button" type="submit" value="Guardar" onclick="confirm_save(event, this)">
         </form>
     </div>
     {% comment %}<script src="{% static 'base/js/script_alerts.js'%}"></script>

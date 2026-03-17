@@ -262,3 +262,7 @@ input[type=checkbox]:active + .box{
   width: 90%;
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
+
+.modal__header{
+    background-color: #3BB1FF;
+}

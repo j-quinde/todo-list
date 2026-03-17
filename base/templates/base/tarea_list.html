@@ -15,7 +15,7 @@
 
     <div class="group-header">
         <h1>To-Do List</h1>
-        <a id="btn-agregar" data-micromodal-trigger="modal-1" {# href="{% url 'crear-tarea' %}" #}><i class="fa fa-plus" aria-hidden="true"></i>&nbspNueva Tarea</a>
+        <a id="btn-agregar" data-micromodal-trigger="modal-1"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNueva Tarea</a>
     </div>
 
     <div class="group-buscador">
@@ -52,6 +52,7 @@
                                     </div>
                                 </div>
                                 <div class="tarea-acciones">
+                                    <a data-micromodal-trigger="modal-1" {# href="{% url 'editar-tarea' tarea.id %}"#}><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                     <a class="icon-delete" onclick="confirm_delete({{ tarea.id }})">
                                         <i class="fa fa-trash-o" aria-hidden="true" style="font-size:20px"></i>
                                     </a>
@@ -96,17 +97,17 @@
 
     {# modal crear/editar tarea #}
     <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
-      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-          <header class="modal__header">
-            <h2 class="modal__title" id="modal-1-title">Formulario de tareas</h2>
-            <button class="modal__close" aria-label="Cerrar modal" data-micromodal-close></button>
-          </header>
-          <main class="modal__content" id="modal-1-content">
-            {% include 'base/tarea_form.html' %}
-          </main>
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <header class="modal__header">
+                    <h2 class="modal__title" id="modal-1-title">Formulario de tareas</h2>
+                    <button class="modal__close" aria-label="Cerrar modal" data-micromodal-close></button>
+                </header>
+                <main class="modal__content" id="modal-1-content">
+                    {% include 'base/tarea_form.html' %}
+                </main>
+            </div>
         </div>
-      </div>
     </div>
 
 

@@ -20,7 +20,7 @@ function confirm_delete(tarea_id) {
     });
 }
 
-function confirm_save(event) {
+function confirm_save(event, button) {
     event.preventDefault();
     Swal.fire({
       position: "center",
@@ -30,6 +30,7 @@ function confirm_save(event) {
       timer: 1500
     }).then(()=>{
        //al cerrar la alerta, se envia el formulario
-       document.querySelector('form').submit();
+       //document.querySelector('#form-crear-tarea').submit();
+        button.closest('form').submit();
     });
 }
