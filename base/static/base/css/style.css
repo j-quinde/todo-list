@@ -65,6 +65,11 @@ body{
     cursor: pointer;
 }
 
+.icon-edit{
+    color: #03d0d5;
+    cursor: pointer;
+}
+
 .tarea-fecha{
     color: #0ec80f;
     font-size: 14px;
