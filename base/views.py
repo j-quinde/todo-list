@@ -12,7 +12,6 @@ from django.urls import reverse_lazy
 from base.models import Tarea
 from .forms import TareaForm
 
-
 # LoginRequiredMixin: protege las vistas basadas en clases (CBV)
 # restringiendo el acceso solo a usuarios autenticados
 
@@ -62,16 +61,6 @@ class ListaTareas(LoginRequiredMixin,ListView):
         context['valor_buscado'] = valor_buscado
         return context
 
-
-# class CrearTarea(LoginRequiredMixin,CreateView):
-#     model = Tarea
-#     fields = ['titulo','descripcion','completo']
-#     success_url = reverse_lazy('tareas')
-#
-#     def form_valid(self, form):
-#         form.instance.usuario = self.request.user #automaticamente asigna el valor de la instancia al usuario logeado
-#         return super(CrearTarea,self).form_valid(form)
-
 @login_required
 def crearTarea(request):
     if request.method == 'POST':
@@ -82,10 +71,6 @@ def crearTarea(request):
             tarea.save()
             return redirect('tareas')
     return redirect('tareas')
-    # else:
-    #     form = TareaForm()
-    # return render(request,'base/tarea_form.html',{'form':form})
-
 
 class EditarTarea(LoginRequiredMixin,UpdateView):
     model = Tarea
@@ -93,11 +78,6 @@ class EditarTarea(LoginRequiredMixin,UpdateView):
     template_name = 'base/tarea_form.html'
     #fields = ['titulo', 'descripcion', 'completo']
     success_url = reverse_lazy('tareas')
-
-# class EliminarTarea(DeleteView):
-#     model = Tarea
-#     context_object_name = 'tareas'
-#     success_url = reverse_lazy('tareas')
 
 @login_required # para funciones se usan decoradores
 def eliminarTarea(request,pk):
@@ -113,3 +93,17 @@ def actualizarTarea(request,pk):
         tarea.save()
         return JsonResponse({"success":True,"completo": tarea.completo})
     return JsonResponse({"success":False}, status=400)
+
+# class CrearTarea(LoginRequiredMixin,CreateView):
+#     model = Tarea
+#     fields = ['titulo','descripcion','completo']
+#     success_url = reverse_lazy('tareas')
+#
+#     def form_valid(self, form):
+#         form.instance.usuario = self.request.user #automaticamente asigna el valor de la instancia al usuario logeado
+#         return super(CrearTarea,self).form_valid(form)
+
+# class EliminarTarea(DeleteView):
+#     model = Tarea
+#     context_object_name = 'tareas'
+#     success_url = reverse_lazy('tareas')

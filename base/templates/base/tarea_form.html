@@ -1,21 +1,12 @@
-{% comment %}{% extends 'base/base.html' %}
-{% load static %}
 
-{% block content %}{% endcomment %}
-{#    <div class="group-header">#}
-{#        <h1>Formulario de tareas</h1>#}
-{#        <a class="button" href="{% url 'tareas' %}"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbspVolver</a>#}
-{#    </div>#}
     <div class="group-form">
         <form id="form-crear-tarea" method="post" action="{% if tarea %}{% url 'editar-tarea' tarea.id %}{% else %}{% url 'crear-tarea' %}{% endif %}">
             {% csrf_token %}
             <div class="form-item">
-{#                <label for="id_titulo">{{ form.titulo.label }}</label>#}
                 <label for="id_titulo">Título:</label>
                 {{ form.titulo }}
             </div>
             <div class="form-item">
-{#                <label for="id_descripcion">{{ form.descripcion.label }}</label>#}
                 <label for="id_descripcion">Descripción:</label>
                 {{ form.descripcion }}
             </div>
@@ -25,5 +16,3 @@
             <input class="button" type="submit" value="Guardar" onclick="confirm_save(event, this)">
         </form>
     </div>
-    {% comment %}<script src="{% static 'base/js/script_alerts.js'%}"></script>
-{% endblock content %}{% endcomment %}

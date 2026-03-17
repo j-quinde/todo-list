@@ -1,4 +1,8 @@
 
+document.addEventListener('DOMContentLoaded', () => {
+  MicroModal.init();
+});
+
 const tabs = document.querySelectorAll('.tabs a');
 const tab_contents = document.querySelectorAll('.tab-content');
 
@@ -16,7 +20,6 @@ tabs.forEach(tab => {
        document.querySelector(target).classList.add('active');
    }
 });
-
 
 document.querySelectorAll('.form-tarea').forEach(form => {
     form.addEventListener('change', function(e) {
@@ -42,9 +45,6 @@ document.querySelectorAll('.form-tarea').forEach(form => {
             }
         });
     });
-});
-document.addEventListener('DOMContentLoaded', () => {
-  MicroModal.init();
 });
 
 document.querySelectorAll('.icon-edit').forEach(btn =>{

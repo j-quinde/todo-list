@@ -5,7 +5,6 @@ body{
 }
 
 .container{
-    /*background-color: #f7f6f8;*/
     margin: auto;
 }
 
@@ -133,8 +132,6 @@ input[type=text], input[type=password], textarea{
 }
 
 .group-form{
-    /*max-width: 600px;
-    margin: auto;*/
     list-style-type: none;
 }
 
@@ -143,7 +140,6 @@ input[type=text], input[type=password], textarea{
 }
 
 .form-item{
-    /*margin: auto;*/
     padding: 10px;
 }
 
