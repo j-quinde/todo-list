@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from base.models import Tarea
-from .forms import TareaForm, MyAuthenticationForm
+from .forms import TareaForm, MyAuthenticationForm, MyUserCreationForm
 
 # LoginRequiredMixin: protege las vistas basadas en clases (CBV)
 # restringiendo el acceso solo a usuarios autenticados
@@ -29,7 +29,8 @@ class Login(LoginView):
 
 class RegistroUsuario(FormView):
     template_name = 'base/registro.html'
-    form_class = UserCreationForm
+    form_class = MyUserCreationForm
+    # form_class = UserCreationForm
     # redirect_authenticated_user = True
     success_url = reverse_lazy('tareas')
 
