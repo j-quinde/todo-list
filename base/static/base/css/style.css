@@ -8,14 +8,14 @@ body{
     margin: auto;
 }
 
-.login-wrapper{
+.auth-wrapper{
     min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.login-container{
+.auth-container{
     background: #ffffff;
     width: 350px;
     border-radius: 10px;
@@ -26,7 +26,7 @@ body{
     padding: 20px;
 }
 
-.login-container h1, p{
+.auth-container h1, .auth-container p{
     text-align: center;
 }
 
