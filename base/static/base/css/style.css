@@ -1,11 +1,33 @@
 
 body{
-    background: #f5f7fa;
+    background: #fafafa;
     font-family: "Open Sans", sans-serif;
 }
 
 .container{
     margin: auto;
+}
+
+.login-wrapper{
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container{
+    background: #ffffff;
+    width: 350px;
+    border-radius: 10px;
+    margin: auto;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e5e7eb;
+    padding: 20px;
+}
+
+.login-container h1, p{
+    text-align: center;
 }
 
 .container-tabs{
@@ -79,7 +101,8 @@ input[type=text], input[type=password], textarea{
     border: 1px solid #d7d7d7;
     border-radius: 5px;
     padding: 10px;
-    width: 90%;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .button{
@@ -129,6 +152,12 @@ input[type=text], input[type=password], textarea{
     cursor: pointer;
     padding: 10px;
     font-size: 15px;
+}
+
+.btn-login{
+    background: linear-gradient(90deg,#5ae3e6 0%, #17c9cd 43%, #17c9cd 100%);
+    color: #ffffff;
+    width: 100%;
 }
 
 .group-form{
@@ -228,6 +257,18 @@ input[type=checkbox]:active + .box{
 
 .tarea-completada::after {
     transform: scaleX(1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
 }
 
 /*.fade-out {
