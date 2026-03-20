@@ -4,16 +4,20 @@
 {% block content %}
     {% include 'base/header.html' %}
 
-    <div class="group-header">
-        <h1>To-Do List</h1>
+    {% comment %}<div class="group-header">
         <a id="btn-agregar" data-micromodal-trigger="modal-1"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNueva Tarea</a>
-    </div>
+    </div>{% endcomment %}
 
-    <div class="group-buscador">
-        <form method="GET">
-            <input type="text" name="buscador" placeholder="Buscar..." aria-label="Buscar" value="{{ valor_buscado }}">
-            <button type="submit" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </form>
+    <div class="group-header">
+        <div class="group-buscador">
+            <form method="GET">
+                <input type="text" name="buscador" placeholder="Buscar..." aria-label="Buscar" value="{{ valor_buscado }}">
+                <button type="submit" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+        </div>
+        <div class="group-btn">
+            <a id="btn-agregar" data-micromodal-trigger="modal-1"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNueva Tarea</a>
+        </div>
     </div>
 
     <div class="container-tabs">
