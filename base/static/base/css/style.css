@@ -2,6 +2,7 @@
 body{
     background: #fafafa;
     font-family: "Open Sans", sans-serif;
+    padding-top: 64px;
 }
 
 .container{
@@ -307,4 +308,32 @@ input[type=checkbox]:active + .box{
 
 .modal__header{
     background-color: #3BB1FF;
+}
+
+.navbar {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:64px;
+    background:#fff;
+    border-bottom:1px solid #f0f0f4;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 32px;
+    z-index:1000;
+    box-shadow:0 1px 0 rgba(0,0,0,.04);
+}
+
+.nav-title {
+    margin: 0;
+    position: absolute; /* Asegura el centrado absoluto */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 36px;
+}
+
+.nav-right {
+    margin-left: auto; /* Empuja el botón a la derecha */
 }

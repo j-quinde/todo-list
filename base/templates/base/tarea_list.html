@@ -2,16 +2,7 @@
 {% load static %}
 
 {% block content %}
-    {% if request.user.is_authenticated %}
-        {# el "|title" luego del request.user es para poner la primera letra en mayuscula    #}
-        <p>Hola {{ request.user|title }}</p>
-        <form method="post" action="{%url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit"> Salir </button>
-        </form>
-    {% else %}
-        <a href="{% url 'login' %}">Ingresar</a>
-    {% endif %}
+    {% include 'base/header.html' %}
 
     <div class="group-header">
         <h1>To-Do List</h1>

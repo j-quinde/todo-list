@@ -1,0 +1,19 @@
+{% block content %}
+    {% if request.user.is_authenticated %}
+        {# el "|title" luego del request.user es para poner la primera letra en mayuscula    #}
+        <nav class="navbar">
+            <div class="nav-empty"></div>
+            <div class="nav-title">
+                <p>To-Do List de {{ request.user|title }}</p>
+            </div>
+            <div class="nav-right">
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button class="button" type="submit"> Salir</button>
+                </form>
+            </div>
+        </nav>
+    {% else %}
+        <a href="{% url 'login' %}">Ingresar</a>
+    {% endif %}
+{% endblock content %}
