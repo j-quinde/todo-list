@@ -315,6 +315,7 @@ input[type=checkbox]:active + .box{
 }
 
 .modal__overlay {
+    z-index: 1001;
   background: rgba(0,0,0,0.5);
   position: fixed;
   top: 0;
