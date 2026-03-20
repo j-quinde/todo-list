@@ -329,7 +329,7 @@ input[type=checkbox]:active + .box {
 
 .modal__container {
     background: #fff;
-    padding: 20px;
+    /*padding: 20px;*/
     border-radius: 8px;
     max-width: 500px;
     width: 90%;
@@ -338,6 +338,42 @@ input[type=checkbox]:active + .box {
 
 .modal__header {
     background-color: #3BB1FF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    min-height: 100%;
+}
+
+.modal__title {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.25rem;
+}
+
+.modal__close {
+    background: transparent;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.modal__close i {
+    color: #ffffff !important;
+    opacity: 80%;
+}
+
+.modal__close:hover {
+
+}
+
+
+
+.modal__content {
+    padding: 20px;
 }
 
 .navbar {
