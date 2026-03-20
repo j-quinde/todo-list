@@ -12,6 +12,7 @@ from django.urls import reverse_lazy
 from base.models import Tarea
 from .forms import TareaForm, MyAuthenticationForm, MyUserCreationForm
 
+
 # LoginRequiredMixin: protege las vistas basadas en clases (CBV)
 # restringiendo el acceso solo a usuarios autenticados
 
@@ -26,6 +27,7 @@ class Login(LoginView):
     # te manda a la pagina principal de tareas
     def get_success_url(self):
         return reverse_lazy('tareas')
+
 
 class RegistroUsuario(FormView):
     template_name = 'base/registro.html'
@@ -46,8 +48,9 @@ class RegistroUsuario(FormView):
             login(self.request, usuario)
         return super(RegistroUsuario, self).form_valid(form)
 
+
 # Vista tareas
-class ListaTareas(LoginRequiredMixin,ListView):
+class ListaTareas(LoginRequiredMixin, ListView):
     model = Tarea
     context_object_name = 'tareas'
 
@@ -63,6 +66,7 @@ class ListaTareas(LoginRequiredMixin,ListView):
         context['valor_buscado'] = valor_buscado
         return context
 
+
 @login_required
 def crearTarea(request):
     if request.method == 'POST':
@@ -74,27 +78,30 @@ def crearTarea(request):
             return redirect('tareas')
     return redirect('tareas')
 
-class EditarTarea(LoginRequiredMixin,UpdateView):
+
+class EditarTarea(LoginRequiredMixin, UpdateView):
     model = Tarea
     form_class = TareaForm
     template_name = 'base/tarea_form.html'
-    #fields = ['titulo', 'descripcion', 'completo']
+    # fields = ['titulo', 'descripcion', 'completo']
     success_url = reverse_lazy('tareas')
 
-@login_required # para funciones se usan decoradores
-def eliminarTarea(request,pk):
-    tarea = get_object_or_404(Tarea,pk=pk)
+
+@login_required  # para funciones se usan decoradores
+def eliminarTarea(request, pk):
+    tarea = get_object_or_404(Tarea, pk=pk)
     tarea.delete()
-    messages.success(request,'Tarea eliminado correctamente')
+    messages.success(request, 'Tarea eliminado correctamente')
     return redirect('tareas')
 
-def actualizarTarea(request,pk):
-    tarea = get_object_or_404(Tarea,pk=pk)
+
+def actualizarTarea(request, pk):
+    tarea = get_object_or_404(Tarea, pk=pk)
     if request.method == 'POST':
         tarea.completo = "completo" in request.POST
         tarea.save()
-        return JsonResponse({"success":True,"completo": tarea.completo})
-    return JsonResponse({"success":False}, status=400)
+        return JsonResponse({"success": True, "completo": tarea.completo})
+    return JsonResponse({"success": False}, status=400)
 
 # class CrearTarea(LoginRequiredMixin,CreateView):
 #     model = Tarea

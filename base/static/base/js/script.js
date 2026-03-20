@@ -1,28 +1,27 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-  MicroModal.init();
+    MicroModal.init();
 });
 
 const tabs = document.querySelectorAll('.tabs a');
 const tab_contents = document.querySelectorAll('.tab-content');
 
 tabs.forEach(tab => {
-   tab.onclick = (e) => {
-       e.preventDefault();
-       const target = tab.getAttribute('href');
+    tab.onclick = (e) => {
+        e.preventDefault();
+        const target = tab.getAttribute('href');
 
-       //quitar active
-       tabs.forEach(t => t.classList.remove('active'));
-       tab_contents.forEach(tc => tc.classList.remove('active'));
+        //quitar active
+        tabs.forEach(t => t.classList.remove('active'));
+        tab_contents.forEach(tc => tc.classList.remove('active'));
 
-       //agregar active
-       tab.classList.add('active');
-       document.querySelector(target).classList.add('active');
-   }
+        //agregar active
+        tab.classList.add('active');
+        document.querySelector(target).classList.add('active');
+    }
 });
 
 document.querySelectorAll('.form-tarea').forEach(form => {
-    form.addEventListener('change', function(e) {
+    form.addEventListener('change', function (e) {
         e.preventDefault();
 
         const formData = new FormData(form);
@@ -33,21 +32,21 @@ document.querySelectorAll('.form-tarea').forEach(form => {
                 "X-CSRFToken": formData.get('csrfmiddlewaretoken')
             }
         }).then(res => res.json()).then(data => {
-            if(data.success){
+            if (data.success) {
                 const label = form.querySelector('.titulo-tarea');
-                if (data.completo){
+                if (data.completo) {
                     label.classList.add('tarea-completada');
-                }else{
+                } else {
                     label.classList.remove('tarea-completada');
                 }
-            }else{
+            } else {
                 alert("Error al actualizar tarea");
             }
         });
     });
 });
 
-document.querySelectorAll('.icon-edit').forEach(btn =>{
+document.querySelectorAll('.icon-edit').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const url = btn.getAttribute('href');

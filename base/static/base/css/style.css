@@ -1,22 +1,22 @@
 
-body{
+body {
     background: #fafafa;
     font-family: "Open Sans", sans-serif;
     padding-top: 60px;
 }
 
-.container{
+.container {
     margin: auto;
 }
 
-.auth-wrapper{
+.auth-wrapper {
     min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.auth-container{
+.auth-container {
     background: #ffffff;
     width: 350px;
     border-radius: 10px;
@@ -27,32 +27,32 @@ body{
     padding: 20px;
 }
 
-.auth-container h1, .auth-container p{
+.auth-container h1, .auth-container p {
     text-align: center;
 }
 
-.container-tabs{
+.container-tabs {
     max-width: 600px;
     min-height: 30rem;
     border-radius: 10px;
     margin: auto;
-    -webkit-box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.21);
-    box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.21);
+    -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+    box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
     background-color: #ECE6E0;
 }
 
-.tabs{
+.tabs {
     margin-top: 10px;
     padding: 10px;
 }
 
-.tabs a{
+.tabs a {
     text-decoration: none;
     color: black;
     padding: 10px;
 }
 
-.tabs a.active{
+.tabs a.active {
     background-color: #ffffff;
     font-weight: bold;
     font-size: 18px;
@@ -60,21 +60,21 @@ body{
     padding-bottom: 10px;
 }
 
-.tab-contents{
+.tab-contents {
     padding: 10px;
     background-color: #f7f6f8;
     margin: auto;
 }
 
-.tab-content{
+.tab-content {
     display: none;
 }
 
-.tab-content.active{
+.tab-content.active {
     display: block;
 }
 
-.items-tareas form{
+.items-tareas form {
     display: flex;
     padding: 12px;
     border-bottom: 1px solid rgb(225, 225, 225);
@@ -100,23 +100,23 @@ body{
 }
 
 
-.icon-delete{
+.icon-delete {
     color: red;
     cursor: pointer;
 }
 
-.icon-edit{
+.icon-edit {
     color: #03d0d5;
     cursor: pointer;
 }
 
-.tarea-fecha{
+.tarea-fecha {
     color: #0ec80f;
     font-size: 14px;
     margin-top: 5px;
 }
 
-input[type=text], input[type=password], textarea{
+input[type=text], input[type=password], textarea {
     border: 1px solid #d7d7d7;
     border-radius: 5px;
     padding: 10px;
@@ -124,7 +124,7 @@ input[type=text], input[type=password], textarea{
     width: 100%;
 }
 
-.button{
+.button {
     border: 1px solid #d7d7d7;
     background-color: #fafafa;
     color: #717171;
@@ -135,7 +135,7 @@ input[type=text], input[type=password], textarea{
     padding: 8px;
 }
 
-.group-header{
+.group-header {
     display: flex;
     margin: 20px auto;
     align-items: center;
@@ -148,15 +148,15 @@ input[type=text], input[type=password], textarea{
     white-space: nowrap;
 }
 
-.group-btn a{
+.group-btn a {
     display: inline-block;
 }
 
-.group-buscador{
+.group-buscador {
     flex-grow: 1;
 }
 
-.group-buscador form{
+.group-buscador form {
     display: flex;
     width: 100%;
 }
@@ -171,7 +171,7 @@ input[type=text], input[type=password], textarea{
     border-radius: 0 4px 4px 0 !important;
 }
 
-#btn-agregar{
+#btn-agregar {
     text-decoration: none;
     background-color: #5DC25D;
     border-color: #4cae4c;
@@ -182,42 +182,42 @@ input[type=text], input[type=password], textarea{
     font-size: 15px;
 }
 
-.btn-login{
-    background: linear-gradient(90deg,#5ae3e6 0%, #17c9cd 43%, #17c9cd 100%);
+.btn-login {
+    background: linear-gradient(90deg, #5ae3e6 0%, #17c9cd 43%, #17c9cd 100%);
     color: #ffffff;
     width: 100%;
 }
 
-.group-form{
+.group-form {
     list-style-type: none;
 }
 
-.group-form input[type=submit]{
+.group-form input[type=submit] {
     margin: 10px;
 }
 
-.form-item{
+.form-item {
     padding: 10px;
 }
 
-.form-item label{
+.form-item label {
     padding-bottom: 5px;
 }
 
-.group-form input[type=text]{
+.group-form input[type=text] {
     margin-top: 10px !important;
 }
 
-.group-form textarea{
+.group-form textarea {
     margin-top: 10px !important;
 }
 
-.checkbox{
+.checkbox {
     display: inline-block;
     cursor: pointer;
 }
 
-.checkbox .box{
+.checkbox .box {
     display: inline-block;
     width: 1rem;
     height: 1rem;
@@ -228,20 +228,20 @@ input[type=text], input[type=password], textarea{
     transition: all 0.35s ease;
 }
 
-.checkbox:hover .box{
+.checkbox:hover .box {
     border: 2px solid #3BB1FF;
 }
 
-input[type=checkbox]{
+input[type=checkbox] {
     display: none;
 }
 
-input[type=checkbox]:checked + .box{
+input[type=checkbox]:checked + .box {
     border: 2px solid #3BB1FF;
     background: #3BB1FF;
 }
 
-input[type=checkbox]:checked + .box::after{
+input[type=checkbox]:checked + .box::after {
     content: "";
     display: block;
     width: 0.3rem;
@@ -255,11 +255,11 @@ input[type=checkbox]:checked + .box::after{
     margin-top: -0.05rem;
 }
 
-input[type=checkbox]:active + .box{
+input[type=checkbox]:active + .box {
     box-shadow: 0 0 4px #3BB1FF;
 }
 
-.titulo-tarea{
+.titulo-tarea {
     word-break: break-word;
     font-size: 18px;
     position: relative;
@@ -267,7 +267,7 @@ input[type=checkbox]:active + .box{
     transition: color 0.5s ease, opacity 0.5s ease;
 }
 
-.titulo-tarea::after{
+.titulo-tarea::after {
     content: "";
     position: absolute;
     left: 0;
@@ -280,7 +280,7 @@ input[type=checkbox]:active + .box{
     transition: transform 0.5s ease;
 }
 
-.tarea-completada{
+.tarea-completada {
     color: #575757;
     opacity: 0.7;
 }
@@ -290,15 +290,15 @@ input[type=checkbox]:active + .box{
 }
 
 .form-group {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .form-label {
-  display: block;
-  font-size: 16px;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 8px;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
 }
 
 /*.fade-out {
@@ -307,53 +307,53 @@ input[type=checkbox]:active + .box{
 }*/
 
 .modal {
-  display: none;
+    display: none;
 }
 
 .modal.is-open {
-  display: block;
+    display: block;
 }
 
 .modal__overlay {
     z-index: 1001;
-  background: rgba(0,0,0,0.5);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal__container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 500px;
-  width: 90%;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.modal__header{
+.modal__header {
     background-color: #3BB1FF;
 }
 
 .navbar {
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    height:64px;
-    background:#fff;
-    border-bottom:1px solid #f0f0f4;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 32px;
-    z-index:1000;
-    box-shadow:0 1px 0 rgba(0,0,0,.04);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    z-index: 1000;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .04);
 }
 
 .nav-title {

@@ -1,4 +1,3 @@
-
 function confirm_delete(tarea_id) {
     Swal.fire({
         title: "¿Seguro que desea eliminar la tarea?",
@@ -7,7 +6,7 @@ function confirm_delete(tarea_id) {
         confirmButtonText: "Sí, eliminar!",
         cancelButtonText: 'Cancelar'
     }).then((result) => {
-        if(result.isConfirmed){
+        if (result.isConfirmed) {
             Swal.fire({
                 text: "Tarea Eliminada!.",
                 icon: "success",
@@ -23,14 +22,14 @@ function confirm_delete(tarea_id) {
 function confirm_save(event, button) {
     event.preventDefault();
     Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Tarea Guadada!",
-      showConfirmButton: false,
-      timer: 1500
-    }).then(()=>{
-       //al cerrar la alerta, se envia el formulario
-       //document.querySelector('#form-crear-tarea').submit();
+        position: "center",
+        icon: "success",
+        title: "Tarea Guadada!",
+        showConfirmButton: false,
+        timer: 1500
+    }).then(() => {
+        //al cerrar la alerta, se envia el formulario
+        //document.querySelector('#form-crear-tarea').submit();
         button.closest('form').submit();
     });
 }

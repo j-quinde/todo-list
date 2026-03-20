@@ -11,12 +11,14 @@
     <div class="group-header">
         <div class="group-buscador">
             <form method="GET">
-                <input type="text" name="buscador" placeholder="Buscar..." aria-label="Buscar" value="{{ valor_buscado }}">
+                <input type="text" name="buscador" placeholder="Buscar..." aria-label="Buscar"
+                       value="{{ valor_buscado }}">
                 <button type="submit" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
         </div>
         <div class="group-btn">
-            <a id="btn-agregar" data-micromodal-trigger="modal-1"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNueva Tarea</a>
+            <a id="btn-agregar" data-micromodal-trigger="modal-1"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNueva
+                Tarea</a>
         </div>
     </div>
 
@@ -29,12 +31,13 @@
             <div class="tab-content active" id="tab-pendientes">
                 {% for tarea in tareas %}
                     {% if not tarea.completo %}
-                        <div class="items-tareas" id="tarea-{{tarea.id}}">
-                            <form method="post" action="{%url 'actualizar-tarea' tarea.id %}" class="form-tarea">
+                        <div class="items-tareas" id="tarea-{{ tarea.id }}">
+                            <form method="post" action="{% url 'actualizar-tarea' tarea.id %}" class="form-tarea">
                                 {% csrf_token %}
                                 <div class="tarea-check">
                                     <label class="checkbox">
-                                        <input type="checkbox" name="completo" class="chk-completo" data-id="{{ tarea.id }}" {% if tarea.completo %}checked{% endif %}>
+                                        <input type="checkbox" name="completo" class="chk-completo"
+                                               data-id="{{ tarea.id }}" {% if tarea.completo %}checked{% endif %}>
                                         <span class="box"></span>
                                     </label>
                                 </div>
@@ -47,7 +50,10 @@
                                     </div>
                                 </div>
                                 <div class="tarea-acciones">
-                                    <a class="icon-edit" data-micromodal-trigger="modal-1" href="{% url 'editar-tarea' tarea.id %}"><i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size:20px"></i></a>
+                                    <a class="icon-edit" data-micromodal-trigger="modal-1"
+                                       href="{% url 'editar-tarea' tarea.id %}"><i class="fa fa-pencil-square-o"
+                                                                                   aria-hidden="true"
+                                                                                   style="font-size:20px"></i></a>
                                     <a class="icon-delete" onclick="confirm_delete({{ tarea.id }})">
                                         <i class="fa fa-trash-o" aria-hidden="true" style="font-size:20px"></i>
                                     </a>
@@ -61,11 +67,12 @@
                 {% for tarea in tareas %}
                     {% if tarea.completo %}
                         <div class="items-tareas">
-                            <form method="post" action="{%url 'actualizar-tarea' tarea.id %}" class="form-tarea">
+                            <form method="post" action="{% url 'actualizar-tarea' tarea.id %}" class="form-tarea">
                                 {% csrf_token %}
                                 <div class="tarea-check">
                                     <label class="checkbox">
-                                        <input type="checkbox" name="completo" class="chk-completo" data-id="{{ tarea.id }}" {% if tarea.completo %}checked{% endif %}>
+                                        <input type="checkbox" name="completo" class="chk-completo"
+                                               data-id="{{ tarea.id }}" {% if tarea.completo %}checked{% endif %}>
                                         <span class="box"></span>
                                     </label>
                                 </div>
@@ -106,6 +113,6 @@
     </div>
 
 
-    <script src="{% static 'base/js/script_alerts.js'%}"></script>
-    <script src="{% static 'base/js/script.js'%}"></script>
+    <script src="{% static 'base/js/script_alerts.js' %}"></script>
+    <script src="{% static 'base/js/script.js' %}"></script>
 {% endblock content %}

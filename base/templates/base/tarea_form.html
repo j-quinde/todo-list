@@ -1,18 +1,19 @@
-
-    <div class="group-form">
-        <form id="form-crear-tarea" method="post" action="{% if tarea %}{% url 'editar-tarea' tarea.id %}{% else %}{% url 'crear-tarea' %}{% endif %}">
-            {% csrf_token %}
-            <div class="form-item">
-                <label for="id_titulo">Título:</label>
-                {{ form.titulo }}
-            </div>
-            <div class="form-item">
-                <label for="id_descripcion">Descripción:</label>
-                {{ form.descripcion }}
-            </div>
-            <div class="form-item">
-                <label for="id_completo" class="checkbox">{{ form.completo }} <span class="box"></span> {{ form.completo.label }}</label>
-            </div>
-            <input class="button" type="submit" value="Guardar" onclick="confirm_save(event, this)">
-        </form>
-    </div>
+<div class="group-form">
+    <form id="form-crear-tarea" method="post"
+          action="{% if tarea %}{% url 'editar-tarea' tarea.id %}{% else %}{% url 'crear-tarea' %}{% endif %}">
+        {% csrf_token %}
+        <div class="form-item">
+            <label for="id_titulo">Título:</label>
+            {{ form.titulo }}
+        </div>
+        <div class="form-item">
+            <label for="id_descripcion">Descripción:</label>
+            {{ form.descripcion }}
+        </div>
+        <div class="form-item">
+            <label for="id_completo" class="checkbox">{{ form.completo }} <span
+                    class="box"></span> {{ form.completo.label }}</label>
+        </div>
+        <input class="button" type="submit" value="Guardar" onclick="confirm_save(event, this)">
+    </form>
+</div>
