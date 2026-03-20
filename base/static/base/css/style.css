@@ -366,12 +366,6 @@ input[type=checkbox]:active + .box {
     opacity: 80%;
 }
 
-.modal__close:hover {
-
-}
-
-
-
 .modal__content {
     padding: 20px;
 }
