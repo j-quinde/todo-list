@@ -1,6 +1,6 @@
 <div class="group-form">
     <form id="form-crear-tarea" method="post"
-          action="{% if tarea %}{% url 'editar-tarea' tarea.id %}{% else %}{% url 'crear-tarea' %}{% endif %}">
+          action="{% if tarea %}{% url 'editar-tarea' tarea.id %}{% else %}{% url 'crear-tarea' %}{% endif %}" data-crear-url="{% url 'crear-tarea' %}">
         {% csrf_token %}
         <div class="form-item">
             <label for="id_titulo">Título:</label>

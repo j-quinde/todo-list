@@ -20,6 +20,21 @@ tabs.forEach(tab => {
     }
 });
 
+document.getElementById('btn-agregar').addEventListener('click', (e) => {
+    e.preventDefault();
+    const form = document.getElementById('form-crear-tarea');
+    if (form) {
+        // limpiar manualmente los campos
+        form.querySelector('#id_titulo').value = '';
+        form.querySelector('#id_descripcion').value = '';
+        form.querySelector('#id_completo').checked = false;
+
+        // forzar que el action sea crear
+        form.action = form.dataset.crearUrl;
+    }
+    MicroModal.show('modal-1');
+});
+
 document.querySelectorAll('.form-tarea').forEach(form => {
     form.addEventListener('change', function (e) {
         e.preventDefault();
