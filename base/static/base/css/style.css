@@ -376,8 +376,9 @@ input[type=checkbox]:active + .box {
     left: 0;
     right: 0;
     height: 64px;
-    background: #fff;
+    background: #3BB1FF;
     border-bottom: 1px solid #f0f0f4;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-between;
