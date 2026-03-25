@@ -13,6 +13,7 @@
             <form method="GET">
                 <input type="text" name="buscador" placeholder="Buscar..." aria-label="Buscar"
                        value="{{ valor_buscado }}">
+                       <input type="hidden" name="tab" value="{{ tab_activo}}">
                 <button type="submit" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
         </div>
@@ -24,11 +25,13 @@
 
     <div class="container-tabs">
         <div class="tabs">
-            <a class="tab active" href="#tab-pendientes">Pendientes</a>
-            <a class="tab" href="#tab-terminados">Terminados</a>
+            {% comment %} <a class="tab active" href="#tab-pendientes">Pendientes</a>
+            <a class="tab" href="#tab-terminados">Terminados</a> {% endcomment %}
+            <a class="tab {% if tab_activo == 'pendientes' %}active{% endif %}" href="?tab=pendientes">Pendientes</a>
+            <a class="tab {% if tab_activo == 'terminados' %}active{% endif %}" href="?tab=terminados">Terminados</a>
         </div>
         <div class="tab-contents">
-            <div class="tab-content active" id="tab-pendientes">
+            <div class="tab-content {% if tab_activo == 'pendientes' %}active{% endif %}" id="tab-pendientes">
                 {% for tarea in tareas %}
                     {% if not tarea.completo %}
                         <div class="items-tareas" id="tarea-{{ tarea.id }}">
@@ -63,7 +66,7 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <div class="tab-content" id="tab-terminados">
+            <div class="tab-content {% if tab_activo == 'terminados' %}active{% endif %}" id="tab-terminados">
                 {% for tarea in tareas %}
                     {% if tarea.completo %}
                         <div class="items-tareas">

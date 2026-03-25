@@ -2,23 +2,30 @@ document.addEventListener('DOMContentLoaded', () => {
     MicroModal.init();
 });
 
-const tabs = document.querySelectorAll('.tabs a');
+/* const tabs = document.querySelectorAll('.tabs a');
 const tab_contents = document.querySelectorAll('.tab-content');
+const buscador = document.querySelector('input[name="buscador"]');
 
-tabs.forEach(tab => {
-    tab.onclick = (e) => {
+tabs.forEach(tab =>{
+    tab.addEventListener('click', (e) => {
         e.preventDefault();
-        const target = tab.getAttribute('href');
+        const target = tab.dataset.target;
 
-        //quitar active
+        // quitar active
         tabs.forEach(t => t.classList.remove('active'));
         tab_contents.forEach(tc => tc.classList.remove('active'));
 
-        //agregar active
+        // agregar active
         tab.classList.add('active');
         document.querySelector(target).classList.add('active');
-    }
+
+        // limpiar el buscador al cambiar de tab
+        buscador.value = '';
+        document.querySelectorAll(`${target} .tarea-item`).forEach(t => t.style.display = '');
+    });
 });
+ */
+
 
 document.getElementById('btn-agregar').addEventListener('click', (e) => {
     e.preventDefault();

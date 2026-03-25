@@ -57,6 +57,12 @@ class ListaTareas(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['tareas'] = context['tareas'].filter(usuario=self.request.user)
+        tab_activo = self.request.GET.get('tab') or 'pendientes'
+        if tab_activo == 'pendientes':
+            context['tareas'] = context['tareas'].filter(completo=False)
+        elif tab_activo == 'terminados':
+            context['tareas'] = context['tareas'].filter(completo=True)
+        context['tab_activo'] = tab_activo
         context['count'] = context['tareas'].filter(completo=False).count()
         context['form'] = TareaForm()
 
