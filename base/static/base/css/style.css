@@ -102,12 +102,36 @@ body {
 
 .icon-delete {
     color: red;
-    cursor: pointer;
 }
 
 .icon-edit {
     color: #03d0d5;
+}
+
+.btn-icon {
+    position: relative;
     cursor: pointer;
+}
+
+.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translatex(-50%);
+    background-color: #374151;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+.btn-icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
 }
 
 .tarea-fecha {
@@ -420,3 +444,4 @@ input[type=checkbox]:active + .box {
     background-color: #F5F5DC;
     padding: 10px 40px;
 }
+

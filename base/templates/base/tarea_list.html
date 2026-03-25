@@ -53,12 +53,14 @@
                                     </div>
                                 </div>
                                 <div class="tarea-acciones">
-                                    <a class="icon-edit" data-micromodal-trigger="modal-1"
-                                       href="{% url 'editar-tarea' tarea.id %}"><i class="fa fa-pencil-square-o"
-                                                                                   aria-hidden="true"
-                                                                                   style="font-size:20px"></i></a>
-                                    <a class="icon-delete" onclick="confirm_delete({{ tarea.id }})">
-                                        <i class="fa fa-trash-o" aria-hidden="true" style="font-size:20px"></i>
+                                    <a class="btn-icon" data-micromodal-trigger="modal-1"
+                                       href="{% url 'editar-tarea' tarea.id %}">
+                                       <i class="fa fa-pencil-square-o icon-edit" aria-hidden="true" style="font-size:20px"></i>
+                                       <span class="tooltip">Editar</span>
+                                    </a>
+                                    <a class="btn-icon" onclick="confirm_delete({{ tarea.id }})">
+                                        <i class="fa fa-trash-o icon-delete" aria-hidden="true" style="font-size:20px"></i>
+                                        <span class="tooltip">Eliminar</span>
                                     </a>
                                 </div>
                             </form>
@@ -91,8 +93,9 @@
                                     </div>
                                 </div>
                                 <div class="tarea-acciones">
-                                    <a class="icon-delete" onclick="confirm_delete({{ tarea.id }})">
-                                        <i class="fa fa-trash-o" aria-hidden="true" style="font-size:20px"></i>
+                                    <a class="btn-icon" onclick="confirm_delete({{ tarea.id }})">
+                                        <i class="fa fa-trash-o icon-delete" aria-hidden="true" style="font-size:20px"></i>
+                                        <span class="tooltip">Eliminar</span>
                                     </a>
                                 </div>
                             </form>
