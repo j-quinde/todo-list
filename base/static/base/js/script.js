@@ -56,10 +56,28 @@ document.querySelectorAll('.form-tarea').forEach(form => {
         }).then(res => res.json()).then(data => {
             if (data.success) {
                 const label = form.querySelector('.titulo-tarea');
+                const tareaDiv = form.closest('.items-tareas');
+
                 if (data.completo) {
                     label.classList.add('tarea-completada');
+
+                    if (tareaDiv.closest('#tab-pendientes')){
+                        tareaDiv.classList.add('fade-out');
+                        setTimeout(() => {
+                            tareaDiv.remove();
+                            document.querySelector('#tab-terminados').appendChild(tareaDiv);
+                        }, 500);
+                    }
                 } else {
                     label.classList.remove('tarea-completada');
+
+                    if (tareaDiv.closest('#tab-terminados')){
+                        tareaDiv.classList.add('fade-out');
+                        setTimeout(() => {
+                            tareaDiv.remove();
+                            document.querySelector('#tab-pendientes').appendChild(tareaDiv);
+                        }, 500);
+                    }
                 }
             } else {
                 alert("Error al actualizar tarea");
