@@ -398,3 +398,25 @@ input[type=checkbox]:active + .box {
 .nav-right {
     margin-left: auto; /* Empuja el botón a la derecha */
 }
+
+.acordeon {
+    cursor: pointer;
+}
+
+.acordeon-content {
+    background-color: transparent;
+    color: #374151;
+    padding: 0 40px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease, background-color 0.9s ease;
+    font-size: 15px;
+    /* 
+    background-color: #f7f6f8;
+    margin-top: 10px; */
+}
+
+.acordeon-content.open {
+    background-color: #F5F5DC;
+    padding: 10px 40px;
+}

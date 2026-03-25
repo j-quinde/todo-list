@@ -80,3 +80,20 @@ document.querySelectorAll('.icon-edit').forEach(btn => {
             });
     });
 });
+
+document.querySelectorAll(".acordeon").forEach(acordeon =>{
+    acordeon.addEventListener("click", () => {
+        const tareaId = acordeon.dataset.id;
+        const content = document.querySelector(`.acordeon-content[data-id="${tareaId}"]`);
+
+        acordeon.classList.toggle('active');
+
+        if (content.classList.contains('open')) {
+            content.style.maxHeight = null;
+            content.classList.remove('open');
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            content.classList.add('open');
+        }
+    });
+});

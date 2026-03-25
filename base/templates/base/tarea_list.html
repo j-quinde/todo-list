@@ -44,7 +44,7 @@
                                         <span class="box"></span>
                                     </label>
                                 </div>
-                                <div class="tarea-detalles">
+                                <div class="tarea-detalles acordeon" data-id="tarea-{{ tarea.id }}">
                                     <label class="titulo-tarea">{{ tarea.titulo }}</label>
                                     <div class="tarea-fecha">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -63,6 +63,9 @@
                                 </div>
                             </form>
                         </div>
+                        <div class="acordeon-content" data-id="tarea-{{ tarea.id }}">
+                            <p>{{ tarea.descripcion }}</p>
+                        </div>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -79,7 +82,7 @@
                                         <span class="box"></span>
                                     </label>
                                 </div>
-                                <div class="tarea-detalles">
+                                <div class="tarea-detalles acordeon" data-id="tarea-{{ tarea.id }}">
                                     <label class="titulo-tarea tarea-completada">{{ tarea.titulo }}</label>
                                     <div class="tarea-fecha">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -93,6 +96,9 @@
                                     </a>
                                 </div>
                             </form>
+                        </div>
+                        <div class="acordeon-content" data-id="tarea-{{ tarea.id }}">
+                            <p>{{ tarea.descripcion }}</p>
                         </div>
                     {% endif %}
                 {% endfor %}
