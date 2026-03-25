@@ -68,7 +68,7 @@ document.querySelectorAll('.form-tarea').forEach(form => {
     });
 });
 
-document.querySelectorAll('.icon-edit').forEach(btn => {
+document.querySelectorAll('.btn-edit').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const url = btn.getAttribute('href');
